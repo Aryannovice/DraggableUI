@@ -1,0 +1,221 @@
+.pipeline-ui-container {
+    width: 100%;
+    height: calc(100vh - 280px);
+    min-height: 600px;
+    /* Remove hardcoded background - now using inline style */
+    border-radius: 16px;
+    margin: 20px;
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .pipeline-ui-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.6) 50%, 
+      transparent 100%);
+    z-index: 1;
+  }
+
+  .pipeline-ui-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .pipeline-ui-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+  
+  .react-flow-container {
+    background: transparent !important;
+    width: 100%;
+    height: 100%;
+  }
+  /* Custom Background Pattern */
+  .react-flow__background {
+    opacity: 0.3;
+  }
+  
+  .react-flow__background pattern {
+    stroke: #cbd5e1;
+    stroke-width: 1;
+  }
+  
+  /* ReactFlow Controls Styling */
+  .react-flow-controls {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 12px;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .react-flow-controls button {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    color: #475569;
+    transition: all 0.2s;
+    padding: 10px;
+  }
+  
+  .react-flow-controls button:last-child {
+    border-bottom: none;
+  }
+  
+  .react-flow-controls button:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #1e293b;
+  }
+  
+  .react-flow-controls button svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* ReactFlow MiniMap Styling */
+  .react-flow-minimap {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 12px;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .react-flow-minimap-mask {
+    fill: rgba(99, 102, 241, 0.1);
+    stroke: rgba(99, 102, 241, 0.3);
+    stroke-width: 2;
+  }
+  
+  /* ReactFlow Edge Styling */
+  .react-flow__edge-path {
+    stroke: #6366f1;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
+    transition: all 0.2s;
+  }
+  
+  .react-flow__edge.selected .react-flow__edge-path {
+    stroke: #4f46e5;
+    stroke-width: 3.5;
+    filter: drop-shadow(0 4px 8px rgba(79, 70, 229, 0.3));
+  }
+  
+  .react-flow__edge:hover .react-flow__edge-path {
+    stroke: #818cf8;
+    stroke-width: 3;
+  }
+  
+  /* Animated edge */
+  .react-flow__edge.animated .react-flow__edge-path {
+    stroke-dasharray: 5;
+    animation: dashdraw 0.5s linear infinite;
+  }
+  
+  @keyframes dashdraw {
+    to {
+      stroke-dashoffset: -10;
+    }
+  }
+  
+  /* Connection line styling */
+  .react-flow__connection-line {
+    stroke: #6366f1;
+    stroke-width: 2;
+    stroke-dasharray: 5 5;
+  }
+  
+  /* Handle styling improvements */
+  .react-flow__handle {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 
+      0 2px 8px rgba(99, 102, 241, 0.4),
+      0 0 0 2px rgba(99, 102, 241, 0.1);
+    transition: all 0.2s;
+  }
+  
+  .react-flow__handle:hover {
+    width: 18px;
+    height: 18px;
+    border-width: 4px;
+    box-shadow: 
+      0 4px 12px rgba(99, 102, 241, 0.6),
+      0 0 0 4px rgba(99, 102, 241, 0.2);
+    transform: scale(1.2);
+  }
+  
+  .react-flow__handle-connecting {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 
+      0 2px 8px rgba(16, 185, 129, 0.5),
+      0 0 0 2px rgba(16, 185, 129, 0.2);
+  }
+  
+  .react-flow__handle-valid {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+  
+  /* Node selection styling */
+  .react-flow__node.selected .base-node {
+    border-color: #6366f1;
+    box-shadow: 
+      0 0 0 3px rgba(99, 102, 241, 0.2),
+      0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Panel styling */
+  .react-flow__panel {
+    background: transparent;
+  }
+  
+  /* Better scrollbar for the canvas */
+  .pipeline-ui-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .pipeline-ui-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .pipeline-ui-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.6) 50%, 
+      transparent 100%);
+    z-index: 1;
+  }
+  
+  .pipeline-ui-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
